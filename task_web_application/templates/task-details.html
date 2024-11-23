@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block title %}
+task-details
+{% endblock %}
+
+{% block body %}
+<div class="container">
+    <div class="row mt-5">
+        <div class="col-2"></div>
+        <div class="col-8">
+            <table class="table table-striped">
+                <tr>
+                    <th>Task Name</th>
+                    <th>Created Date</th>
+                    <th>Status</th>
+                </tr>
+                {% if obj.status %}
+                <tr class="table-success">
+                    <td>{{task_obj.task_name}}</td>
+                    <td>{{task_obj.created_date}}</td>
+                    <td>{{task_obj.status}}</td>
+                </tr>
+                {% else %}
+                <tr class="table-danger">
+                    <td>{{task_obj.task_name}}</td>
+                    <td>{{task_obj.created_date}}</td>
+                    <td>{{task_obj.status}}</td>
+                </tr>
+                {% endif %}
+            </table>
+        </div>
+        <div class="col-2"></div>
+    </div>
+</div>
+{% endblock %}

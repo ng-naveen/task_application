@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block title %}
+task-add
+{% endblock %}
+
+{% block body %}
+<div class="container">
+    <div class="row mt-5">
+        <div class="col-3"></div>
+        <div class="col-6">
+            <table class="table table-striped">
+                <tr>
+                    <th>Task Name</th>
+                    <th>Actions</th>
+                </tr>
+                {% for obj in task_objs %}
+                {% if obj.status %}
+                <tr class="table-success">
+                    <td>{{obj.task_name}}</td>
+                    <td>
+                        <a href="{% url 'task-details' obj.id %}" class="btn btn-outline-light">View</a>
+                        <a href="{% url 'task-update' obj.id %}" class="btn btn-outline-warning">Edit</a>
+                        <a href="{% url 'task-delete' obj.id %}" class="btn btn-outline-danger">Delete</a>
+                    </td>
+                </tr>
+                {% else %}
+                <tr class="table-danger">
+                    <td>{{obj.task_name}}</td>
+                    <td>
+                        <a href="{% url 'task-details' obj.id %}" class="btn btn-light">View</a>
+                        <a href="{% url 'task-update' obj.id %}" class="btn btn-warning">Edit</a>
+                        <a href="{% url 'task-delete' obj.id %}" class="btn btn-danger">Delete</a>
+                    </td>
+                </tr>
+                {% endif %}
+                {% endfor %}
+            </table>
+        </div>
+        <div class="col-3"></div>
+    </div>
+</div>
+{% endblock %}

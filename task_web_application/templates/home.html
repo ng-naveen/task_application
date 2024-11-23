@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block title %}
+home
+{% endblock %}
+
+{% block body %}
+<div class="container">
+    <div class="row mt-5">
+        <div class="col-4"></div>
+        <div class="col-4">
+            <h1 class="text-center">Hello {{request.user}}</h1>
+            <div class="text-center">
+                <a href="{% url 'task-add' %}" class="btn btn-outline-primary text-center">Add Task</a>
+                <a href="{% url 'task-list' %}" class="btn btn-outline-primary text-center">List Tasks</a>
+            </div>
+        </div>
+        <div class="col-4"></div>
+    </div>
+</div>
+{% endblock %}
